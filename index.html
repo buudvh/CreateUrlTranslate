@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Translate AI</title>
+    <script src="./script/ext.js?v=202509192100"></script>
+    <link href="./css/ext.css?v=202509192100" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🌐 Create Translate AI</h1>
+            <p>Tạo và quản lý các tiện ích mở rộng dịch thuật thông minh</p>
+        </div>
+
+        <div class="translate-section">
+            <div class="card">
+                <h2>🚀 Tạo Link Dịch</h2>
+
+                <div class="api-section">
+                    <label for="apiFile"
+                        style="display: block; margin-bottom: 8px; font-weight: 600; color: #4a5568;">Chọn API key
+                        file:</label>
+                    <div class="file-input-wrapper">
+                        <input type="file" id="apiFile" class="file-input" accept=".txt">
+                        <div class="file-input-button">📁 Chọn File API</div>
+                    </div>
+                    <div id="fileName" style="font-size: 14px; color: #718096; margin-top: 8px;"></div>
+
+                    <div class="select-wrapper" style="margin-top: 15px;">
+                        <select class="select" id="aiModel">
+                            <option value="gemini">🧠 Gemini AI (aitype=0)</option>
+                            <option value="groq">🤖 Groq AI (aitype=1)</option>
+                        </select>
+                    </div>
+
+                    <button class="create-button" onclick="processApiFile()">
+                        <span id="createButtonText">✨ Tạo Link Dịch AI</span>
+                    </button>
+
+                    <div id="successMessage" class="success-message">
+                        ✅ Tạo link dịch AI thành công!
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>🔗 Danh Sách Link Dịch</h2>
+                
+                <div class="api-trans-section">
+                    <h3>🤖 AI Translate Links</h3>
+                    <div id="id-list-api-translate">
+                        <br>
+                    </div>
+                </div>
+                
+                <h3>📋 Other Translate Links</h3>
+                <div id="id-list-translate"></div>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <div class="card extensions-section">
+                <h2>📋 Danh Sách Tiện Ích Mở Rộng</h2>
+                <div id="id-list-ext"></div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
