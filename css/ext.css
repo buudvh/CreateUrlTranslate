@@ -86,6 +86,7 @@ body {
     position: relative;
     display: inline-block;
     margin-bottom: 15px;
+    width: 100%;
 }
 
 .file-input {
@@ -106,6 +107,8 @@ body {
     font-weight: 600;
     transition: all 0.3s ease;
     display: inline-block;
+    width: 100%;
+    text-align: center;
 }
 
 .file-input-button:hover {
@@ -151,6 +154,7 @@ body {
     transition: all 0.3s ease;
     width: 100%;
     font-size: 16px;
+    min-height: 48px;
 }
 
 .create-button:hover {
@@ -170,6 +174,7 @@ body {
     transition: all 0.3s ease;
     cursor: pointer;
     position: relative;
+    min-height: 48px;
 }
 
 .ext-item:hover {
@@ -225,6 +230,8 @@ body {
     position: relative;
     font-weight: 600;
     min-height: 50px;
+    display: flex;
+    align-items: center;
 }
 
 .trans-left {
@@ -289,26 +296,13 @@ body {
     width: 100%;
 }
 
-@media (max-width: 768px) {
-    .translate-section {
-        grid-template-columns: 1fr;
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
     }
 
-    .header h1 {
-        font-size: 2rem;
-    }
-
-    .card {
-        padding: 20px;
-    }
-
-    .trans-item {
-        flex-direction: column;
-    }
-
-    .trans-left {
-        border-right: none;
-        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    100% {
+        transform: rotate(360deg);
     }
 }
 
@@ -321,16 +315,7 @@ body {
     border-radius: 50%;
     animation: spin 1s linear infinite;
     margin-right: 10px;
-}
-
-@keyframes spin {
-    0% {
-        transform: rotate(0deg);
-    }
-
-    100% {
-        transform: rotate(360deg);
-    }
+    vertical-align: middle;
 }
 
 .success-message {
@@ -360,4 +345,246 @@ body {
     color: #4a5568;
     margin-bottom: 15px;
     font-size: 1.2rem;
+}
+
+/* Tablet breakpoint */
+@media (max-width: 1024px) {
+    .container {
+        padding: 15px;
+    }
+
+    .header h1 {
+        font-size: 2.5rem;
+    }
+
+    .card h2 {
+        font-size: 1.5rem;
+    }
+}
+
+/* Mobile breakpoint - General */
+@media (max-width: 768px) {
+    .container {
+        padding: 12px;
+    }
+
+    .translate-section {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .header {
+        margin-bottom: 25px;
+    }
+
+    .header h1 {
+        font-size: 2rem;
+        line-height: 1.2;
+    }
+
+    .header p {
+        font-size: 0.9rem;
+        padding: 0 10px;
+    }
+
+    .card {
+        padding: 20px 15px;
+        border-radius: 15px;
+    }
+
+    .card h2 {
+        font-size: 1.4rem;
+        margin-bottom: 20px;
+    }
+
+    .trans-item {
+        flex-direction: column;
+        min-height: auto;
+    }
+
+    .trans-left,
+    .trans-right {
+        width: 100%;
+        min-height: 48px;
+        padding: 12px 15px;
+    }
+
+    .trans-left {
+        border-right: none;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    }
+
+    .ext-item {
+        padding: 12px 15px;
+        font-size: 14px;
+        min-height: 48px;
+    }
+
+    .plugin-info {
+        font-size: 12px;
+    }
+
+    .api-trans-section h3,
+    .card h3 {
+        font-size: 1.1rem;
+    }
+
+    .create-button,
+    .file-input-button {
+        font-size: 15px;
+        padding: 14px 20px;
+        min-height: 50px;
+    }
+
+    .select {
+        font-size: 15px;
+        padding: 14px 16px;
+        min-height: 50px;
+    }
+}
+
+/* iPhone 11 specific optimizations (414x896px) */
+@media only screen 
+    and (device-width: 414px) 
+    and (device-height: 896px) 
+    and (-webkit-device-pixel-ratio: 2) {
+    
+    body {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+
+    .container {
+        padding: env(safe-area-inset-top, 15px) env(safe-area-inset-right, 12px) env(safe-area-inset-bottom, 15px) env(safe-area-inset-left, 12px);
+    }
+
+    .header {
+        padding-top: max(15px, env(safe-area-inset-top));
+    }
+
+    /* Better touch targets */
+    .trans-left,
+    .trans-right,
+    .ext-item,
+    .create-button,
+    .file-input-button {
+        min-height: 48px;
+    }
+
+    /* Prevent text size adjustment */
+    body {
+        -webkit-text-size-adjust: 100%;
+        text-size-adjust: 100%;
+    }
+
+    /* Smooth scrolling */
+    .container {
+        -webkit-overflow-scrolling: touch;
+    }
+}
+
+/* Small phones (iPhone SE, etc.) */
+@media (max-width: 375px) {
+    .header h1 {
+        font-size: 1.75rem;
+    }
+
+    .card {
+        padding: 15px 12px;
+    }
+
+    .card h2 {
+        font-size: 1.3rem;
+    }
+
+    .trans-left,
+    .trans-right,
+    .ext-item {
+        padding: 10px 12px;
+        font-size: 13px;
+    }
+
+    .create-button,
+    .file-input-button,
+    .select {
+        font-size: 14px;
+        padding: 12px 16px;
+    }
+
+    .api-trans-section h3,
+    .card h3 {
+        font-size: 1rem;
+    }
+
+    .plugin-info {
+        font-size: 11px;
+    }
+}
+
+/* Landscape mode for mobile */
+@media (max-height: 500px) and (orientation: landscape) {
+    .header {
+        margin-bottom: 15px;
+    }
+
+    .header h1 {
+        font-size: 1.5rem;
+        margin-bottom: 5px;
+    }
+
+    .header p {
+        font-size: 0.8rem;
+    }
+
+    .card {
+        padding: 15px;
+    }
+
+    .card h2 {
+        font-size: 1.2rem;
+        margin-bottom: 15px;
+    }
+
+    .translate-section {
+        gap: 15px;
+        margin-bottom: 20px;
+    }
+}
+
+/* Prevent zoom on input focus for iOS */
+@media screen and (max-width: 768px) {
+    input[type="file"],
+    select,
+    button {
+        font-size: 16px !important;
+    }
+}
+
+/* Active/tap states for better feedback on mobile */
+@media (max-width: 768px) {
+    .trans-left:active,
+    .trans-right:active,
+    .ext-item:active {
+        opacity: 0.8;
+        transform: scale(0.98);
+    }
+
+    .create-button:active,
+    .file-input-button:active {
+        transform: scale(0.97);
+    }
+
+    /* Remove hover effects on mobile */
+    .card:hover {
+        transform: none;
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    }
+
+    .ext-item:hover {
+        transform: none;
+    }
+
+    .trans-item:hover {
+        transform: none;
+    }
 }
